@@ -2,6 +2,7 @@ from electric_appliances_store.appliances.electric_appliance import ElectricAppl
 
 
 class Refrigerator(ElectricAppliance):
-    def __init__(self, name, color, staffnum):
-        super(name, color)
-        self.staffnumber = staffnum
+
+    def __init__(self, model, color, depth, width, height):
+        ElectricAppliance.__init__(self, model, color, width, height)
+        self.depth = depth
