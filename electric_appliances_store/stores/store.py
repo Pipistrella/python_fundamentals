@@ -1,20 +1,28 @@
-from electric_appliances_store.warehouses.warehouse import Warehouse
-
-
 class Store:
 
-    def __init__(self, name, address):
+    def __init__(self, name, address, warehouse):
         self.name = name
         self.address = address
+        self.warehouse = warehouse
 
     def get_products(self):
-        print("You can buy NOW:")
-        items_for_customers = Warehouse.items_in_stock.keys()
+        print('You can buy NOW:\n')
+        items_for_customers = self.warehouse.items_in_stock.keys()
         item_models = []
         for item in items_for_customers:
             item_models.append(item.description())
         for key in item_models:
             print(key)
 
-    def send_product_to_store(self, item):
-        self.items.pop(item)
+    def send_item_to_customer(self, item):
+        self.warehouse.send_product_to_store(item)
+
+    def get_promotional_item(self, item, customer):
+        if customer.id >=3:
+            self.warehouse.send_product_to_store(item)
+            promo_msg = 'Your special price was {} - You got 50% off the regular price {}\n'.format(item.price * 0.5, item.price)
+            print promo_msg
+        else:
+            self.warehouse.send_product_to_store(item)
+            promo_msg = 'Your special price was {} - You got 20% off the regular price {}\n'.format(item.price * 0.8, item.price)
+            print promo_msg

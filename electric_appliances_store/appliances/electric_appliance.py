@@ -1,14 +1,15 @@
 class ElectricAppliance:
 
-    def __init__(self, model, color, width, height):
+    def __init__(self, model, color, width, height, price):
         self.model = model
         self.color = color
         self.width = width
-        self.heigth = height
+        self.height = height
+        self.price = price
 
     def description(self):
-        desc_str = "%s in %s color (Height: %s Width: %s)" % (self.model, self.color, self.heigth, self.width)
+        desc_str = '{} in {} color (Height: {} Width: {})\n'.format(self.model, self.color, self.height, self.width)
         return desc_str
 
-    def connections(self):
-        print ("Needs only electricity!")
+    def get_required_connections(self):
+        print ('Needs only electricity!\n')
