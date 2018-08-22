@@ -1,3 +1,5 @@
+import unittest
+
 from electric_appliances_store.appliances.refrigerator import Refrigerator
 from electric_appliances_store.appliances.washing_machine import WashingMachine
 from electric_appliances_store.customer.customer import Customer
@@ -26,11 +28,11 @@ my_customer1 = Customer(1)
 my_customer4 = Customer(4)
 
 # Configuring my store
-my_store = Store('Olya Shop','Mogadishu', my_warehouse)
+my_store = Store('Olya Shop', 'Mogadishu', my_warehouse)
 
 # Buying products from my store
 my_store.get_products()
-refrigerator1.get_required_connections()
+my_store.get_product_connectoins_info(refrigerator4)
 my_store.send_item_to_customer(refrigerator1)
 my_store.send_item_to_customer(refrigerator2)
 my_store.send_item_to_customer(refrigerator1)

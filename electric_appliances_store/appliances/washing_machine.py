@@ -8,4 +8,4 @@ class WashingMachine(ElectricAppliance):
         self.load_type = load_type
 
     def get_required_connections(self):
-        print ('Needs electricity and water!\n')
+        return 'Needs electricity and water!\n'

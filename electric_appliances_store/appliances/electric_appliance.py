@@ -12,4 +12,4 @@ class ElectricAppliance:
         return desc_str
 
     def get_required_connections(self):
-        print ('Needs only electricity!\n')
+        return 'Needs only electricity!\n'
