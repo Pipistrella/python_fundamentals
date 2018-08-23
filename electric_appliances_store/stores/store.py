@@ -22,11 +22,13 @@ class Store:
             self.warehouse.send_product_to_store(item)
             print 'Your special price was {} - You got 50% off the regular price {}\n'\
                 .format(item.price * 0.5, item.price)
+            return item.price * 0.5
         else:
             self.warehouse.send_product_to_store(item)
-            promo_msg = 'Your special price was {} - You got 20% off the regular price {}\n'\
+            print 'Your special price was {} - You got 20% off the regular price {}\n'\
                 .format(item.price * 0.8, item.price)
-            print promo_msg
+            return item.price * 0.8
 
-    def get_product_connectoins_info(self, item):
+    @staticmethod
+    def get_product_connections_info(item):
         print item.get_required_connections()

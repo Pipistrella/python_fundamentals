@@ -44,7 +44,7 @@ class WarehouseTestCase(unittest.TestCase):
         self.warehouse.add_new_product(self.refrigerator, self.stock_level)
         self.warehouse.add_new_product(self.refrigerator2, self.stock_level2)
         values = self.warehouse.items_in_stock.values()
-        self.assertEqual(self.stock_level2, values[1])
+        self.assertEqual(self.stock_level2, values[0])
 
     def test_send_product_to_store(self):
         self.warehouse.add_new_product(self.refrigerator, self.stock_level)
@@ -73,3 +73,11 @@ class WarehouseTestCase(unittest.TestCase):
         self.warehouse.add_new_product(self.refrigerator2, self.stock_level2)
         self.warehouse.add_new_product(self.refrigerator3, self.stock_level)
         self.assertEqual(3, len(self.warehouse.get_all_items()))
+
+    def test_get_all_items_add_remove_item(self):
+        only_one_in_stock = 1
+        self.warehouse.add_new_product(self.refrigerator, self.stock_level)
+        self.warehouse.add_new_product(self.refrigerator2, self.stock_level2)
+        self.warehouse.add_new_product(self.refrigerator3, only_one_in_stock)
+        self.warehouse.send_product_to_store(self.refrigerator3)
+        self.assertEqual(2, len(self.warehouse.get_all_items()))

@@ -32,7 +32,7 @@ my_store = Store('Olya Shop', 'Mogadishu', my_warehouse)
 
 # Buying products from my store
 my_store.get_products()
-my_store.get_product_connectoins_info(refrigerator4)
+my_store.get_product_connections_info(refrigerator4)
 my_store.send_item_to_customer(refrigerator1)
 my_store.send_item_to_customer(refrigerator2)
 my_store.send_item_to_customer(refrigerator1)
